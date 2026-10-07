@@ -1,0 +1,345 @@
+
+/* =========================
+   NAVBAR - VERTICAL SIDEBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 220px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(3, 7, 18, 0.82);
+  backdrop-filter: blur(14px);
+
+  border-right: 1px solid rgba(30, 41, 59, 0.7);
+
+  z-index: 1000;
+}
+
+
+/* =========================
+   NAVBAR CONTAINER
+========================= */
+
+.navbar-container {
+  width: 100%;
+  height: 100%;
+
+  padding: 30px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+}
+
+.logo-mark img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: contain;
+}
+
+.logo-name {
+  color: #f8fafc;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav-links {
+  width: 100%;
+
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+
+  gap: 8px;
+}
+
+.nav-links a {
+  position: relative;
+
+  /* width: 100%; */
+
+  color: #94a3b8;
+
+  text-decoration: none;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f8fafc;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================
+   ACTIVE LINK
+========================= */
+
+.nav-links a.active {
+  color: #60a5fa;
+
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 4px;
+  height: 22px;
+
+  border-radius: 3px;
+
+  background: #60a5fa;
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================
+   RESUME BUTTON
+========================= */
+
+.resume-btn {
+  margin-top: auto;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 11px 17px;
+
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 8px;
+
+  background: rgba(37, 99, 235, 0.1);
+
+  color: #60a5fa;
+
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: 0.3s ease;
+}
+
+.resume-btn:hover {
+  background: #2563eb;
+
+  color: white;
+
+  border-color: #2563eb;
+
+  transform: translateY(-1px);
+}
+
+.resume-btn span {
+  font-size: 16px;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-toggle {
+  display: none;
+
+  border: none;
+  background: transparent;
+
+  color: #e2e8f0;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  padding: 5px;
+}
+
+
+/* =========================
+   CONTENT OFFSET
+========================= */
+
+/* Your main content should start
+   after the sidebar */
+
+main {
+  margin-left: 220px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .navbar {
+    width: 100%;
+    height: 68px;
+
+    flex-direction: row;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.7);
+  }
+
+  .navbar-container {
+    height: 68px;
+
+    padding: 0 18px;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-name {
+    font-size: 14px;
+  }
+
+  .logo-mark {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  /* Hide desktop resume */
+
+  .navbar .resume-btn {
+    display: none;
+  }
+
+
+  /* Show menu */
+
+  .menu-toggle {
+    display: block;
+  }
+
+
+  /* Mobile navigation */
+
+  .nav-links {
+    position: absolute;
+
+    top: 68px;
+    left: 0;
+
+    width: 100%;
+
+    margin-top: 0;
+
+    padding: 15px 20px 22px;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 4px;
+
+    background: rgba(3, 7, 18, 0.97);
+
+    border-bottom: 1px solid #1e293b;
+
+    box-shadow:
+      0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+  }
+
+  .nav-links a.active {
+    background: rgba(37, 99, 235, 0.1);
+  }
+
+  .nav-links a.active::after {
+    left: 5px;
+    top: 50%;
+
+    width: 4px;
+    height: 18px;
+
+    transform: translateY(-50%);
+  }
+
+
+  /* Remove desktop content offset */
+
+  main {
+    margin-left: 0;
+  }
+}
+

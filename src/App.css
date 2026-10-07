@@ -1,0 +1,321 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #030712;
+  color: #f8fafc;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 220px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px 20px;
+
+  background: rgba(3, 7, 18, 0.92);
+
+  border-right: 1px solid rgba(30, 41, 59, 0.8);
+
+  backdrop-filter: blur(14px);
+
+  z-index: 1000;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 5px;
+}
+
+.logo-symbol {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #38bdf8
+  );
+
+  color: white;
+
+  font-size: 25px;
+  font-weight: 800;
+
+  transform: skew(-8deg);
+
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.25);
+}
+
+.navbar-logo span {
+  font-size: 21px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  color: #f8fafc;
+}
+
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-top: 55px;
+}
+
+.nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 13px 15px;
+
+  border-radius: 9px;
+
+  color: #94a3b8;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #f8fafc;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  transform: translateX(3px);
+}
+
+
+/* ACTIVE */
+
+.nav-link.active {
+  color: #ffffff;
+
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 0.35),
+    rgba(37, 99, 235, 0.08)
+  );
+}
+
+.nav-link.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -20px;
+  top: 50%;
+
+  width: 4px;
+  height: 24px;
+
+  border-radius: 0 4px 4px 0;
+
+  background: #3b82f6;
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================
+   NAVBAR BOTTOM
+========================= */
+
+.navbar-bottom {
+  margin-top: auto;
+
+  padding: 15px 5px;
+
+  border-top: 1px solid #1e293b;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+  min-height: 100vh;
+
+  margin-left: 220px;
+}
+
+
+/* =========================
+   MOBILE BUTTON
+========================= */
+
+.menu-button {
+  display: none;
+
+  border: none;
+
+  background: transparent;
+
+  color: #e2e8f0;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .navbar {
+    width: 100%;
+    height: 68px;
+
+    padding: 0 18px;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-right: none;
+
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .navbar-logo {
+    padding: 0;
+  }
+
+  .logo-symbol {
+    width: 36px;
+    height: 36px;
+
+    font-size: 21px;
+  }
+
+  .navbar-logo span {
+    font-size: 17px;
+  }
+
+
+  .menu-button {
+    display: block;
+  }
+
+
+  .nav-links {
+    position: absolute;
+
+    top: 68px;
+    left: 0;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 15px;
+
+    display: none;
+
+    background: rgba(3, 7, 18, 0.98);
+
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+
+  .nav-link {
+    padding: 13px 15px;
+  }
+
+  .nav-link.active::before {
+    left: 0;
+
+    width: 4px;
+  }
+
+
+  .navbar-bottom {
+    display: none;
+  }
+
+
+  .main-content {
+    margin-left: 0;
+
+    padding-top: 68px;
+  }
+}
